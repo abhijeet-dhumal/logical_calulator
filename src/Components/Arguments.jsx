@@ -48,10 +48,10 @@ export default function Arguments(props) {
           </select>
         </div>
       ))}
-      <button type="button" onClick={addInput}>
+      <button style={{backgroundColor:"rgb(46, 50, 94)",margin:5,borderColor:"white",color:"white"}} type="button" onClick={addInput}>
         Add
       </button>
-      <button onClick={() => removeLast()}>x</button>
+      <button style={{backgroundColor:"rgb(46, 50, 94)",margin:5,borderColor:"white",color:"white"}} onClick={() => removeLast()}>x</button>
     </div>
   );
 }

@@ -14,7 +14,7 @@ function App() {
   ]);
 
   return (
-    <>
+    <div style={{padding:40, border : '1px solid #aaa'}}>
     <h3>User defined Arguments </h3>
     <br/>
     <Arguments args={args} setArgs={setArgs}/> 
@@ -22,8 +22,13 @@ function App() {
     <h3 style={{marginTop:35}}>Logical Calculator </h3>
     <Main args={args} setArgs={setArgs} result={result} setResult={setResult} op={null}/> 
     <Result result={result} setResult={setResult}/>
+    
+    <div class="container" style={{marginTop:30}}>
+        <hr /><br/>
+        <span><i>created by</i> '<b>Abhijeet Dhumal</b>'</span>
+    </div>
     <br />
-    </>
+    </div>
   );
 }
 

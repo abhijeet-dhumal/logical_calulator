@@ -60,7 +60,7 @@ export default function Main (props) {
           setResult={props.setResult}
           op={operation}
       />}
-      <button onClick={() => setAddOp(!addOpp)}>+ | -</button>
+      <button style={{backgroundColor:"rgb(46, 50, 94)",margin:5,borderColor:"white",color:"white"}} onClick={() => setAddOp(!addOpp) }>+ | -</button>
 
 
     </div>
