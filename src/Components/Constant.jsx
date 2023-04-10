@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
 export default function Constant(props) {
-
+  
   const handleSelection = (event) => {
     console.log("entedred in handler const",props)
+    console.log(event.target.value)
     if (event.target.value !== null) {
       if (props.op === null) {
         if (event.target.value === "true") {
@@ -31,8 +32,8 @@ export default function Constant(props) {
 
   return (
     <>
-    <select onChange={handleSelection}>
-      <option value={null}>Select</option>
+    <select onChange={handleSelection} className="form-select my-1 mx-1" style={{width:'12vw'}}>
+      <option value={null}>Select Const</option>
       <option value={true}>True</option>
       <option value={false}>False</option>
     </select>

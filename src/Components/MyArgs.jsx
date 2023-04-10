@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 export default function MyArgs(props) {
-  
+
   const handleSelection = (event) => {
-    console.log("entedred in handler const",props)
+    
     if (event.target.value !== null) {
       if (props.op === null) {
         if (event.target.value === "true") {
@@ -29,8 +29,8 @@ export default function MyArgs(props) {
 
 
   return (
-        <select onChange={handleSelection}>
-          <option value={null}>Select</option>
+        <select onChange={handleSelection} class="form-select my-1 mx-1"style={{width:'12vw',padding:'1vw'}}>
+          <option value={null}>Select Arg</option>
           {props.args.map(e => <option value={e.value}>{e.arg.toString()}</option>)}
         </select>      
   );

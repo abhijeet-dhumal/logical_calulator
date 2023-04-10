@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Main from "./Main";
+import Main from "./Menu";
 
 export default function And(props) {
   return (
