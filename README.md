@@ -1,1 +1,1 @@
-# logical_calulator.github.io
+# Logical Calculator

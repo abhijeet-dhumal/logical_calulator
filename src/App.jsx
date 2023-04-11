@@ -17,10 +17,10 @@ function App() {
     <div
       style={{
         padding: 40,
-        width:'100%',
-        display:'flex',
-        flexDirection:'column',
-        justifyContent:'center',
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
         border: "1px solid #aaa",
         backgroundColor: "#213547",
       }}
@@ -37,8 +37,8 @@ function App() {
         setResult={setResult}
         op={null}
       />
-      <br/>
-      <hr/>
+      <br />
+      <hr />
       <Result result={result} setResult={setResult} />
 
       <div className="container">

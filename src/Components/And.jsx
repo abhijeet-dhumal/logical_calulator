@@ -5,7 +5,7 @@ export default function And(props) {
   return (
     <div style={{ marginLeft: 10, marginTop: 5 }}>
       <label>
-        <Main 
+        <Main
           args={props.args}
           setArgs={props.setArgs}
           result={props.result}
