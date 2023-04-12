@@ -15,6 +15,7 @@ export default function Menu(props) {
   }
   function close() {
     setSelectedP("");
+    props.var[0].arr='';
   }
   return (
     <div
