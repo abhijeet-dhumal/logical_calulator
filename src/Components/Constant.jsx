@@ -1,51 +1,36 @@
 import React, { useState } from "react";
 
 export default function Constant(props) {
-  function updateResult(str) {
-    let stack = [];
-    let i = 0;
-    if (str[str.length - 1] === "|" || str[str.length - 1] === "&") {
-      str = str.slice(0, str.length - 1);
-      console.log(str);
+  function evaluateBooleanString(booleanString) {
+    if (
+      booleanString[booleanString.length - 1] === "&" ||
+      booleanString[booleanString.length - 1] === "|"
+    ) {
+      console.log("entered");
+      booleanString = booleanString.slice(0, booleanString.length - 1);
+      console.log(booleanString);
     }
-    while (i < str.length) {
-      if (str[i] === " ") {
-        // ignore whitespace
-        i++;
-      } else if (str[i] === "t") {
-        // found "true", push true onto stack
-        stack.push(true);
-        i += 4;
-      } else if (str[i] === "f") {
-        // found "false", push false onto stack
-        stack.push(false);
-        i += 5;
-      } else if (str[i] === "&") {
-        // found "&", pop two values off stack and evaluate
-        if(stack.length>1){
-        let operand2 = stack.pop();
-        let operand1 = stack.pop();
-        console.log(`performed ${operand1} && ${operand2}`)
-        stack.push(operand1 && operand2);
+    // Split the boolean string into an array of variables
+    const variables = booleanString.split(/&|\|/);
+
+    // Split the boolean string into an array of operators
+    const operators = booleanString.match(/&|\|/g);
+
+    // Initialize the output variable to the first variable in the array
+    let output = variables[0] === "true";
+    // Loop through the variables and operators and evaluate the boolean expression
+    if (operators !== null) {
+      for (let i = 0; i < operators.length; i++) {
+        const variable = variables[i + 1] === "true";
+        if (operators[i] === "&") {
+          output = output && variable;
+        } else if (operators[i] === "|") {
+          output = output || variable;
         }
-        i++;
-      } else if (str[i] === "|") {
-        // found "|", pop two values off stack and evaluate
-        if(stack.length>1){
-        let operand2 = stack.pop();
-        let operand1 = stack.pop();
-        console.log(`performed ${operand1} || ${operand2}`)
-        stack.push(operand1 || operand2);
-        }
-        i++;
       }
-      console.log(stack);
     }
-    if(stack[0]){
-    return stack[0];
-    }else{
-      return stack[1];
-    }
+
+    return output;
   }
 
   const handleSelection = (event) => {
@@ -75,9 +60,8 @@ export default function Constant(props) {
           props.vars[0].arr += `${ans}|`;
           console.log("or performed");
         }
-        console.log(props.vars[0].arr)
-        let result = updateResult(`${props.vars[0].arr}`);
-        console.log("result is: ",result);
+        let result = evaluateBooleanString(`${props.vars[0].arr}`);
+        console.log("result is: ", result);
         props.setResult(result);
       }
     }

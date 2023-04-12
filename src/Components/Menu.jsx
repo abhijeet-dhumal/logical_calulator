@@ -18,6 +18,7 @@ export default function Menu(props) {
     console.log("closed ",props.vars);
     if(props.vars){
     props.vars[0].arr="";
+    props.setResult('');
     }
   }
   return (

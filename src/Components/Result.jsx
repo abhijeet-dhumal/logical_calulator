@@ -1,14 +1,17 @@
-import React from 'react'
+import React,{ useEffect, useState } from 'react'
 
 export default function Result(props) {
-  let result;
-  if(props.result===true){
-    result='True';
-  }else if(props.result===false){
-    result='False';
-  }else{
-    result='Undefined';
-  }
+  let [result,setResult]=useState('')
+  useEffect(()=>{
+    if(props.result===true){
+      setResult('True');
+    }else if(props.result===false){
+      setResult('False');
+    }else{
+      setResult('Undefined');
+    }
+  },[props.result])
+  
 
   return (
     <div style={{width:'100%',
