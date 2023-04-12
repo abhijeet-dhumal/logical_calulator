@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export default function MyArgs(props) {
   const handleSelection = (event) => {
+    console.log(props)
     if (event.target.value !== null) {
       if (props.op === null) {
         if (event.target.value === "true") {
@@ -28,8 +29,8 @@ export default function MyArgs(props) {
   return (
     <select
       onChange={handleSelection}
-      class="form-select my-1 mx-1"
-      style={{ width: "12vw", padding: "1vw" }}
+      className="form-select my-1 mx-1"
+      style={{ width: "140px" }}
     >
       <option value={null}>Select Arg</option>
       {props.args.map((e) => (

@@ -5,9 +5,8 @@ import And from "./And";
 import Or from "./Or";
 import DropDownMenu from "./DropDownMenu";
 
-export default function Main(props) {
+export default function Menu(props) {
   let [selectedP, setSelectedP] = useState("");
-
   let operation = null;
   if (props.op === "and") {
     operation = "and";
@@ -43,6 +42,11 @@ export default function Main(props) {
           result={props.result}
           setResult={props.setResult}
           op={operation}
+          arr={props.arr}
+          index={props.index}
+          vars={props.vars}
+          setVars={props.setVars}
+
         />
       )}
       {selectedP === "B" && (
@@ -52,6 +56,10 @@ export default function Main(props) {
           result={props.result}
           setResult={props.setResult}
           op={operation}
+          arr={props.arr}
+          index={props.index}
+          vars={props.vars}
+          setVars={props.setVars}
         />
       )}
       {selectedP === "C" && (

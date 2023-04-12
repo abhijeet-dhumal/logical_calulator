@@ -35,7 +35,7 @@ export default function Arguments(props) {
             style={{ padding: "3px" }}
             name="arg"
             value={item.arg}
-            placeholder="my-arg"
+            placeholder="Type arg here"
             onChange={(event) => handleInputChange(event, index)}
           />
 

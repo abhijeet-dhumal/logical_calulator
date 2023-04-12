@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "./App.css";
-import Arguments from "./Components/Arguments";
-import Menu from "./Components/Menu";
-import Result from "./Components/Result";
-import About from "./Components/About";
+import "../App.css";
+import Arguments from "./Arguments";
+import Menu from "./Menu";
+import Result from "./Result";
+import About from "./About";
 function App() {
   let [showAbout, setShowAbout] = useState(false);
   let [result, setResult] = useState(null);
