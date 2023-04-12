@@ -22,20 +22,30 @@ export default function Constant(props) {
         i += 5;
       } else if (str[i] === "&") {
         // found "&", pop two values off stack and evaluate
+        if(stack.length>1){
         let operand2 = stack.pop();
         let operand1 = stack.pop();
+        console.log(`performed ${operand1} && ${operand2}`)
         stack.push(operand1 && operand2);
+        }
         i++;
       } else if (str[i] === "|") {
         // found "|", pop two values off stack and evaluate
+        if(stack.length>1){
         let operand2 = stack.pop();
         let operand1 = stack.pop();
+        console.log(`performed ${operand1} || ${operand2}`)
         stack.push(operand1 || operand2);
+        }
         i++;
       }
+      console.log(stack);
     }
-    console.log(stack);
-    return stack[1];
+    if(stack[0]){
+    return stack[0];
+    }else{
+      return stack[1];
+    }
   }
 
   const handleSelection = (event) => {
@@ -65,7 +75,9 @@ export default function Constant(props) {
           props.vars[0].arr += `${ans}|`;
           console.log("or performed");
         }
+        console.log(props.vars[0].arr)
         let result = updateResult(`${props.vars[0].arr}`);
+        console.log("result is: ",result);
         props.setResult(result);
       }
     }

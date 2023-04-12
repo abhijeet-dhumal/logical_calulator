@@ -14,8 +14,11 @@ export default function Menu(props) {
     operation = "or";
   }
   function close() {
-    setSelectedP("");
-    props.var[0].arr='';
+    setSelectedP('');
+    console.log("closed ",props.vars);
+    if(props.vars){
+    props.vars[0].arr="";
+    }
   }
   return (
     <div
