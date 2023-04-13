@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-export var args = {};
+import React, { useEffect, useState } from "react";
 
 export default function Arguments(props) {
+
+  useEffect(() => {
+    props.setArgs(props.args);
+  }, [props.args]);
+
   const handleInputChange = (event, index) => {
     let { name, value } = event.target;
     const newData = [...props.args];
@@ -19,6 +23,7 @@ export default function Arguments(props) {
   const addInput = () => {
     props.setArgs([...props.args, { arg: "", value: false }]);
   };
+
   const removeLast = () => {
     let len = props.args.length;
     if (props.args.length > 1) {
@@ -28,7 +33,7 @@ export default function Arguments(props) {
 
   return (
     <div style={{ marginBottom: 35 }}>
-      {Object.keys(props.args).map((item, index) => (
+      {props.args.map((item, index) => (
         <div className="container d-flex my-1">
           <input
             className="input mx-1"
