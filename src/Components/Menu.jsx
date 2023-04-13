@@ -16,9 +16,8 @@ export default function Menu(props) {
   function close() {
     setSelectedP('');
     console.log("closed ",props.vars);
-    if(props.vars){
-    props.vars[0].arr="";
-    props.setResult('');
+    if(props.vars[props.index].val){
+    props.vars.splice(props.index, 1)
     }
   }
   return (
@@ -46,25 +45,24 @@ export default function Menu(props) {
           setArgs={props.setArgs}
           result={props.result}
           setResult={props.setResult}
-          op={operation}
-          arr={props.arr}
+          op={props.op}
+          val={props.vars.val}
           index={props.index}
           vars={props.vars}
           setVars={props.setVars}
-
         />
       )}
       {selectedP === "B" && (
         <MyArgs
-          args={props.args}
-          setArgs={props.setArgs}
-          result={props.result}
-          setResult={props.setResult}
-          op={operation}
-          arr={props.arr}
-          index={props.index}
-          vars={props.vars}
-          setVars={props.setVars}
+        args={props.args}
+        setArgs={props.setArgs}
+        result={props.result}
+        setResult={props.setResult}
+        op={props.op}
+        val={props.vars.val}
+        index={props.index}
+        vars={props.vars}
+        setVars={props.setVars}
         />
       )}
       {selectedP === "C" && (
@@ -74,15 +72,21 @@ export default function Menu(props) {
           result={props.result}
           setResult={props.setResult}
           op={operation}
+          vars={props.vars}
+          setVars={props.setVars}
+          index={props.index}
         />
       )}
       {selectedP === "D" && (
         <Or
-          args={props.args}
-          setArgs={props.setArgs}
-          result={props.result}
-          setResult={props.setResult}
-          op={operation}
+        args={props.args}
+        setArgs={props.setArgs}
+        result={props.result}
+        setResult={props.setResult}
+        op={operation}
+        vars={props.vars}
+        setVars={props.setVars}
+        index={props.index}
         />
       )}
       <button

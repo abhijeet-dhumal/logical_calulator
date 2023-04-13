@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Constant(props) {
+
+  // to convert boolean expression string to result
   function evaluateBooleanString(booleanString) {
     if (
       booleanString[booleanString.length - 1] === "&" ||
@@ -49,7 +51,8 @@ export default function Constant(props) {
           } else if (event.target.value === "false") {
             ans = false;
           }
-          props.vars[0].arr += `${ans}&`;
+          props.vars[props.index].val = ans;
+          props.vars[props.index].op = props.op;
           console.log("and performed");
         } else if (props.op === "or") {
           if (event.target.value === "true") {
@@ -57,10 +60,20 @@ export default function Constant(props) {
           } else if (event.target.value === "false") {
             ans = false;
           }
-          props.vars[0].arr += `${ans}|`;
+          props.vars[props.index].val = ans;
+          props.vars[props.index].op = props.op;
           console.log("or performed");
         }
-        let result = evaluateBooleanString(`${props.vars[0].arr}`);
+
+        const booleanExpressionString = function(vars) {
+          let s="";
+          for(let i=0;i<props.vars.length;i++){
+            s+=`${vars[i].val}${props.op==="and"?'&':'|'}`;
+          }
+          console.log("converted string is : ",s);
+          return s;
+        };
+        let result = evaluateBooleanString(booleanExpressionString(props.vars));
         console.log("result is: ", result);
         props.setResult(result);
       }

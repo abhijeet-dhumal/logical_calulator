@@ -13,6 +13,17 @@ function App() {
       value: false,
     },
   ]);
+  let [vars, setVars]=useState([
+    {
+          args:args,
+          setArgs:setArgs,
+          result:result,
+          setResult:setResult,
+          op:'',
+          val:'',
+          index:0 
+    }
+  ]);
   
   function aboutData() {
     setShowAbout(!showAbout);
@@ -52,6 +63,9 @@ function App() {
           result={result}
           setResult={setResult}
           op={null}
+          index={0}
+          vars={vars}
+          setVars={setVars}
         />
         <br />
         <hr />
