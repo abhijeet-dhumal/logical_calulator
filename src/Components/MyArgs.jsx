@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 export default function MyArgs(props) {
+  const [args, setArgs] = useState(props.args);
+  useEffect(() => {
+    setArgs(props.args);
+  }, [props.args]);
+
   // to convert boolean expression string to result
   function evaluateBooleanString(booleanString) {
     if (
       booleanString[booleanString.length - 1] === "&" ||
       booleanString[booleanString.length - 1] === "|"
     ) {
-      console.log("entered");
       booleanString = booleanString.slice(0, booleanString.length - 1);
       console.log(booleanString);
     }
@@ -87,7 +91,7 @@ export default function MyArgs(props) {
       style={{ width: "140px" }}
     >
       <option value={null}>Select Arg</option>
-      {props.args.map((e) => (
+      {args.map((e) => (
         <option value={e.value}>{e.arg.toString()}</option>
       ))}
     </select>

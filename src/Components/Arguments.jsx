@@ -21,7 +21,7 @@ export default function Arguments(props) {
   };
 
   const addInput = () => {
-    props.setArgs([...props.args, { arg: "", value: false }]);
+    props.setArgs([...props.args, { arg: "", value: '' }]);
   };
 
   const removeLast = () => {
@@ -51,7 +51,7 @@ export default function Arguments(props) {
             value={item.value}
             onChange={(event) => handleInputChange(event, index)}
           >
-            <option value={null}>Select</option>
+            <option value={''}>Select</option>
             <option value={true}>True</option>
             <option value={false}>False</option>
           </select>

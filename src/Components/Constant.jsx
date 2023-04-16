@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 
 export default function Constant(props) {
-
+  const [args, setArgs] = useState(props.args);
+  useEffect(() => {
+    setArgs(props.args);
+  }, [props.args]);
   // to convert boolean expression string to result
   function evaluateBooleanString(booleanString) {
     if (
       booleanString[booleanString.length - 1] === "&" ||
       booleanString[booleanString.length - 1] === "|"
     ) {
-      console.log("entered");
       booleanString = booleanString.slice(0, booleanString.length - 1);
       console.log(booleanString);
     }
